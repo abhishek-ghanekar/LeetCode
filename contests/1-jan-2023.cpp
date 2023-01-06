@@ -58,3 +58,23 @@ public:
         return s.size();
     }
 }; 
+//question 3 : 2522. Partition String Into Substrings With Values at Most K
+class Solution {
+public:
+    int minimumPartition(string s, int k) {
+        string str;
+        int count = 0;
+        for(int i=0;i<s.size();i++) {
+            str.push_back(s[i]);
+            if(stol(str) > k) {
+                str = "";
+                str.push_back(s[i]);
+                if(stol(str) > k) {
+                    return -1;
+                }
+                count++;
+            }
+        }
+        return count+1;
+    }
+};
