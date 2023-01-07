@@ -78,3 +78,40 @@ public:
         return count+1;
     }
 };
+//question 4 : 2523. Closest Prime Numbers in Range
+class Solution {
+public:
+    vector<bool> prime;
+    void seive(int n) {
+        for(int p=2;p*p <=n;p++) {
+            if(prime[p]) {
+                for(int i = p*p ; i <= n; i+= p) {
+                    prime[i] = false;
+                }
+            }
+        }
+    }
+    vector<int> closestPrimes(int left, int right) {
+        prime.resize(right+1,1);
+        seive(right+1);
+        prime[0] = 0;
+        prime[1] = 0;
+        int ans = INT_MAX;
+        vector <int> rans(2,-1);
+        int prev = -1;
+        for(int p = left;p<=right;p++) {
+            if(prime[p]) {
+                if(prev == -1) {
+                    prev = p;
+                }else if(p-prev < ans) {
+                    rans[0] = prev;
+                    rans[1] = p;
+                    ans = p - prev;
+
+                }
+                prev = p;
+            }
+        }
+        return rans;
+    }
+};
