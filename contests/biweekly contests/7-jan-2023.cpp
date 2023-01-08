@@ -30,3 +30,6 @@ public:
     return beauty;
     }
 };
+
+
+
