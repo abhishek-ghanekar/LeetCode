@@ -29,7 +29,6 @@ Node* solve(Node* root,int &k,int node) {
                 k = INT_MAX;
                 return root;
             }
-            
         }
         return rightAns;
     }

@@ -14,7 +14,6 @@ public:
         sum += root->data;
         solve(root->left,sum,maxSum,len+1,maxLen);
         solve(root->right,sum,maxSum,len+1,maxLen);
-        
     }
     int sumOfLongRootToLeafPath(Node *root)
     {
