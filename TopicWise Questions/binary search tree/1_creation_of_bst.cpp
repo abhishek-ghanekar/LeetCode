@@ -12,6 +12,18 @@ class Node {
        this->left = NULL;
     }
 };
+Node* minVal(Node* root) {
+    while(root->left != NULL) {
+        root = root->left;
+    }
+    return root;
+}
+Node* maxVal(Node* root) {
+    while(root->right != NULL) {
+        root = root->right;
+    }
+    return root;
+}
 Node* insertToBst(Node* &root,int data) {
     if(root == NULL) {
         root = new Node(data);
@@ -33,6 +45,42 @@ void takeInput(Node* &root) {
         root = insertToBst(root,data);
         cin >> data;
     }
+}
+Node* deleteFromBst(Node* root,int val) {
+    //0 child
+    if(root == NULL) {
+        return root;
+    }
+    if(root->left == NULL && root->right == NULL) {
+        delete root;
+        return NULL;
+    }
+    //1child
+    if(root->data == val) {
+        if(root->left != NULL && root->right == NULL) {
+       Node* temp = root->left;
+       delete root;
+       return temp;
+    }
+
+    if(root->left == NULL && root->right != NULL) {
+       Node* temp = root->right;
+       delete root;
+       return temp;
+    }
+    //2child
+    if(root->left != NULL && root->right != NULL) {
+        int mini = minVal(root->right) ->data;
+        root->data = mini;
+        root->right = deleteFromBst(root->right,mini);
+        return root;
+    }
+    }else if(val > root->data) {
+        root->right = deleteFromBst(root->right,val);
+    }else {
+        root->left = deleteFromBst(root->left,val);
+    }
+    
 }
 void levelOrderTraversal(Node* root) {
         queue<Node*> q;
@@ -63,6 +111,9 @@ int main()
     cout << "enter the input" << endl;
     takeInput(root);
     cout << "printing the tree we get" << endl;
+    levelOrderTraversal(root);
+    deleteFromBst(root,30);
+    cout << endl;
     levelOrderTraversal(root);
     return 0;
 }
