@@ -4,7 +4,7 @@ using namespace std;
 
 void heapify(int arr[],int n,int index) {
     int smallest = index;
-    int left = 2*index ;
+    int left = 2*index;
     int right = 2*index + 1;
     if(left <= n && arr[left] > arr[smallest]) {
         smallest = left;
@@ -31,7 +31,9 @@ void heapSort(int arr[],int n) {
 int main() {
     int arr[6] = {-1,40,32,60,50,12};
     int n = 5;
-
+    for(int i=n/2;i>0;i--) {
+        heapify(arr,n,i);
+    }
    cout << "printing the heap" << endl;
    for(int i=1;i<=n;i++) {
       cout << arr[i] << " ";

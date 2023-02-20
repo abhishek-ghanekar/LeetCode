@@ -57,9 +57,10 @@ void heapify(int arr[],int n,int index) {
     int largest = index;
     int left = 2*index;
     int right = 2*index + 1;
-    if(left <n && arr[left] > arr[largest]) {
+    if(left < n && arr[left] > arr[largest]) {
         largest = left;
-    }else if(right < n && arr[right] > arr[largest]) {
+    }
+    if(right < n && arr[right] > arr[largest]) {
         largest = right;
     }
     if(largest != index) {
