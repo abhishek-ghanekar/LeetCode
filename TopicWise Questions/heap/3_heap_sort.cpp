@@ -3,7 +3,7 @@
 using namespace std;
 
 void heapify(int arr[],int n,int index) {
-    int smallest = index;
+   int smallest = index;
     int left = 2*index;
     int right = 2*index + 1;
     if(left <= n && arr[left] > arr[smallest]) {
@@ -15,7 +15,7 @@ void heapify(int arr[],int n,int index) {
     }
     if(smallest != index) {
         swap(arr[smallest],arr[index]);
-        heapify(arr,n,smallest);
+         heapify(arr,n,smallest);
     }
 }
 void heapSort(int arr[],int n) {
