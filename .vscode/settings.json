@@ -4,6 +4,7 @@
         "vector": "cpp",
         "cmath": "cpp",
         "complex": "cpp",
-        "cstdlib": "cpp"
+        "cstdlib": "cpp",
+        "unordered_map": "cpp"
     }
 }
