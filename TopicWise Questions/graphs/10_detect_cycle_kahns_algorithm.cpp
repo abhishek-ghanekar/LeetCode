@@ -8,6 +8,7 @@ int detectCycleInDirectedGraph(int n, vector < pair < int, int >> & edges) {
     }
     vector<int> indegree(n);
     for(auto i:adj) {
+        
         for(auto j:i.second) {
             indegree[j]++;
         }

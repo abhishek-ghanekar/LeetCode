@@ -12,6 +12,7 @@ bool dfs(int node,unordered_map<int,bool> &visited,unordered_map<int,bool> &dfsV
       }
     }else if(dfsVisited[neighbour]) {
       return true;
+      // 
     }
   }
   dfsVisited[node] = false;
