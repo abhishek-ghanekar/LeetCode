@@ -5,6 +5,7 @@
         "cmath": "cpp",
         "complex": "cpp",
         "cstdlib": "cpp",
-        "unordered_map": "cpp"
+        "unordered_map": "cpp",
+        "string": "cpp"
     }
 }
