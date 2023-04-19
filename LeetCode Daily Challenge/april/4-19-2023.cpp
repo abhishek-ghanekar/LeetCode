@@ -73,8 +73,9 @@ public:
            solve(root->left,false,curr+1);
            solve(root->right,true,1);
         }else {
-            solve(root->right,true,curr+1);
             solve(root->left,false,1);
+            solve(root->right,true,curr+1);
+            
         }
     }
     int longestZigZag(TreeNode* root) {
