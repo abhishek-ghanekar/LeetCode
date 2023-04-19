@@ -24,6 +24,7 @@ vector<pair<pair<int, int>, int>> calculatePrimsMST(int n, int m, vector<pair<pa
     key[1] = 0;
     parent[1] = -1;
     for(int i=1;i<=n;i++) {
+        // process to find the minimum value
         int mini = INT_MAX;
         int u ;
         for(int v=1; v<=n;v++) {
@@ -35,6 +36,7 @@ vector<pair<pair<int, int>, int>> calculatePrimsMST(int n, int m, vector<pair<pa
         mst[u] = true;
 
         //check adjacent nodes
+        // update the values if less than previous in the key vectors
         for(auto i:adj[u]) {
             int v = i.first;
             int w = i.second;
@@ -46,6 +48,7 @@ vector<pair<pair<int, int>, int>> calculatePrimsMST(int n, int m, vector<pair<pa
     }
 
     vector<pair<pair<int,int>,int>> result;
+    // we run from two as the parent of 1 is -1 , so it will cause an error
     for(int i=2;i<=n;i++) {
         result.push_back({{parent[i],i},key[i]});
     }
