@@ -6,6 +6,7 @@
         "complex": "cpp",
         "cstdlib": "cpp",
         "unordered_map": "cpp",
-        "string": "cpp"
+        "string": "cpp",
+        "iterator": "cpp"
     }
 }
