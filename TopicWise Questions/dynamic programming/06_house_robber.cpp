@@ -14,7 +14,6 @@ int f(vector<int> &nums){
 }
 long long int houseRobber(vector<int>& valueInHouse)
 {
-    
     vector<int> temp1;
     vector<int> temp2;
     int n = valueInHouse.size();

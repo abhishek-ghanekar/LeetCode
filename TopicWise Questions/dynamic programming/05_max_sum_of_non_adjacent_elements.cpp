@@ -28,8 +28,6 @@ int n = nums.size();
         }else {
              pick = nums[i] + dp[i-2];
         }
-        
-        
         int notPick = dp[i-1];
         dp[i] = max(pick,notPick);
     }
