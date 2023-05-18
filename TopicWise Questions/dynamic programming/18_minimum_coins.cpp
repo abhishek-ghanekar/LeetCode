@@ -55,3 +55,6 @@ int minimumElements(vector<int> &num, int x)
     if(dp[n-1][x] >= 1e9) return -1;
     return dp[n-1][x];
 }
+
+
+//using space optimization 

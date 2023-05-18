@@ -13,8 +13,6 @@ int frogJump(int n, vector<int> &heights)
     //converting this into dp
     vector<int> dp(n+2,-1);
     return solve(n-1,heights,dp);
-    
-
 }
 // from bottom up approach
 #include <bits/stdc++.h> 

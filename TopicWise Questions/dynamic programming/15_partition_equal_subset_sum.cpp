@@ -13,8 +13,6 @@ bool f(int n,int k,vector<int> &arr) {
     prev = curr;
   }
   return prev[k];
-  
-  
 }
 bool canPartition(vector<int> &arr, int n)
 {
