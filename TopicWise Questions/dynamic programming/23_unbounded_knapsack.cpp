@@ -44,3 +44,30 @@ int unboundedKnapsack(int n, int w, vector<int> &profit, vector<int> &weight)
     }
     return dp[n-1][w];
 }
+// using space optimization
+#include <bits/stdc++.h> 
+int unboundedKnapsack(int n, int w, vector<int> &profit, vector<int> &weight)
+{
+    vector<int> prev(w+1,0);
+    vector<int> curr(w+1,0);
+    // do the base cases
+    for(int i=0;i<=w;i++) {
+        if(i < weight[0]) {
+            prev[i] = 0;
+        }else {
+            prev[i] = i /weight[0] * profit[0];
+        }
+    }
+    
+
+    for(int i=1;i<n;i++) {
+        for(int j=0;j<=w;j++) {
+            int pick = 0;
+            if(j >= weight[i]) pick = profit[i] + curr[j-weight[i]];
+            int notPick = prev[j];
+             curr[j] = max(pick,notPick);
+        }
+        prev = curr;
+    }
+    return prev[w];
+}
