@@ -11,8 +11,7 @@ int f(int index,int target,vector<int> &arr,vector<vector<int>> &memo) {
   if (target >= arr[index]) {
        pick = f(index-1,target-arr[index],arr,memo);
   }
-  return memo[index][target] = pick + notPick;
-    
+  return memo[index][target] = pick + notPick;   
 }
 int findWays(vector<int> &num, int tar)
 {
