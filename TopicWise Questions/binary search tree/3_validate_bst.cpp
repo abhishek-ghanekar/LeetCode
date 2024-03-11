@@ -7,7 +7,7 @@ bool isBst(BinaryTreeNode<int> *root, int min, int max)
 
     if (root->data >= min && root->data <= max)
     {
-        bool left = sBst(root->left, min, root->data);
+        bool left = isBst(root->left, min, root->data);
         bool right = isBst(root->right, root->data, max);
         return left && right;
     }

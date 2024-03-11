@@ -18,6 +18,7 @@ vector<int> dijkstra(vector<vector<int>> &vec, int vertices, int edges, int sour
     // making the set for the nodes and distance
     // we can also make a priority queue
     set<pair<int,int>> s;
+    
     distance[source] = 0;
     // for entering the values in the set we will use the pair values as distance, node
     s.insert(make_pair(0,source));
@@ -50,3 +51,39 @@ vector<int> dijkstra(vector<vector<int>> &vec, int vertices, int edges, int sour
     return distance;
 
 }
+// dijkstras algorithm using pq
+class Solution
+{
+	public:
+	//Function to find the shortest distance of all the vertices
+    //from the source vertex S.
+    vector <int> dijkstra(int V, vector<vector<int>> adj[], int S)
+    {
+        // Code here
+        // priority_queue<pair<int,int>, vector<int>, greater<int> > pq;
+        priority_queue<pair<int, int>,vector<pair<int, int>>,greater<>> pq;
+        // make a distance vector
+        vector<int> dist(V);
+        for(int i=0;i<V;i++) {
+            dist[i] = 1e9;
+        }
+        dist[S] = 0;
+        pq.push({0,S});
+        while(!pq.empty()) {
+            // the node to be processed
+            auto top = pq.top();
+            int nodeDist = top.first;
+            int node = top.second;
+            pq.pop();
+            // now check all the adjacency
+            for(auto edge:adj[node]) {
+                if(nodeDist + edge[1] < dist[edge[0]]) {
+                    // we update the val
+                    dist[edge[0]] = nodeDist + edge[1];
+                    pq.push({dist[edge[0]],edge[0]});
+                }
+            }
+        }
+        return dist;
+    }
+};
